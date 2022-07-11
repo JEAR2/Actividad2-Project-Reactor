@@ -70,7 +70,7 @@ public class Part03StepVerifier {
 	// by manipulating virtual time thanks to StepVerifier#withVirtualTime, notice how long the test takes
 	void expect3600Elements(Supplier<Flux<Long>> supplier) {
 
-		StepVerifier.withVirtualTime(supplier).thenAwait(Duration.ofSeconds(1)).expectNextCount(3600).verifyComplete();
+		StepVerifier.withVirtualTime(supplier).thenAwait(Duration.ofHours(1)).expectNextCount(3600).verifyComplete();
 	}
 
 	private void fail() {
