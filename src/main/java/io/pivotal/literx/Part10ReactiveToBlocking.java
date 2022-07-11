@@ -15,14 +15,18 @@ public class Part10ReactiveToBlocking {
 
 	// TODO Return the user contained in that Mono
 	User monoToValue(Mono<User> mono) {
-		return null;
+		//User user = mono.map(elemnet->new User(elemnet.getUsername(),elemnet.getFirstname(),elemnet.getLastname())).block();
+		User user = mono.block();
+		return user;
 	}
 
 //========================================================================================
 
 	// TODO Return the users contained in that Flux
 	Iterable<User> fluxToValues(Flux<User> flux) {
-		return null;
+		//Iterable<User> users = flux.map(user->new User(user.getUsername(),user.getFirstname(),user.getLastname())).toIterable();
+		Iterable<User> users = flux.toIterable();
+		return users;
 	}
 
 }
